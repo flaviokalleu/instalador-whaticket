@@ -16,7 +16,8 @@ frontend_node_dependencies() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/${instancia_add}/frontend
-  npm install
+  npm install --force
+
 EOF
 
   sleep 2
@@ -60,7 +61,11 @@ frontend_update() {
   git pull
   cd /home/deploy/${empresa_atualizar}/frontend
   npm install --force
+<<<<<<< HEAD
   export NODE_OPTIONS=--openssl-legacy-provider
+=======
+
+>>>>>>> 82dba2ec01af003dc3963e6b419c19f8f2be3614
   rm -rf build
   npm run build
   pm2 start ${empresa_atualizar}-frontend
@@ -91,15 +96,25 @@ frontend_set_env() {
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/${instancia_add}/frontend/.env
 REACT_APP_BACKEND_URL=${backend_url}
+REACT_APP_ENV_TOKEN = 210897ugn217204u98u8jfo2983u5
 REACT_APP_HOURS_CLOSE_TICKETS_AUTO = 24
+<<<<<<< HEAD
 REACT_APP_ENV_TOKEN = 210897ugn217204u98u8jfo2983u5
 REACT_APP_FACEBOOK_APP_ID= 
 REACT_APP_NAME_SYSTEM = "Zazap - Plataforma de multi atendimeto"
+=======
+REACT_APP_FACEBOOK_APP_ID= 
+REACT_APP_NAME_SYSTEM = ${instancia_add}
+>>>>>>> 82dba2ec01af003dc3963e6b419c19f8f2be3614
 REACT_APP_VERSION="1.0.0"
 REACT_APP_PRIMARY_COLOR=#0b5394
 REACT_APP_PRIMARY_DARK="#2c3145"
 REACT_APP_NUMBER_SUPPORT="5562"
+<<<<<<< HEAD
 SERVER_PORT=9002
+=======
+SERVER_PORT=4000
+>>>>>>> 82dba2ec01af003dc3963e6b419c19f8f2be3614
 WDS_SOCKET_PORT=0
 [-]EOF
 EOF
