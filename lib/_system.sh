@@ -29,7 +29,7 @@ EOF
 #######################################
 system_git_clone() {
   print_banner
-  printf "${WHITE} 💻 Fazendo download do código Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Fazendo download do código Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
 
@@ -49,7 +49,7 @@ EOF
 #######################################
 system_update() {
   print_banner
-  printf "${WHITE} 💻 Vamos atualizar o sistema Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos atualizar o sistema Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -71,7 +71,7 @@ EOF
 #######################################
 deletar_tudo() {
   print_banner
-  printf "${WHITE} 💻 Vamos deletar o Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos deletar o Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -117,7 +117,7 @@ EOF
 #######################################
 configurar_bloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos bloquear o Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos bloquear o Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -144,7 +144,7 @@ EOF
 #######################################
 configurar_desbloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Desbloquear o Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Desbloquear o Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -170,7 +170,7 @@ EOF
 #######################################
 configurar_dominio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Alterar os Dominios do Whaticket...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Alterar os Dominios do Canal Vem Fazer...${GRAY_LIGHT}"
   printf "\n\n"
 
 sleep 2
@@ -281,7 +281,7 @@ system_node_install() {
   sleep 2
 
   sudo su - root <<EOF
-  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
   apt-get install -y nodejs
   sleep 2
   npm install -g npm@latest
