@@ -173,8 +173,7 @@ backend_node_build() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/${instancia_add}/backend
-  export NODE_OPTIONS=--openssl-legacy-provider
+  cd /home/deploy/${instancia_add}/backend  
   npm run build
 EOF
 
