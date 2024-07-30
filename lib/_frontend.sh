@@ -16,8 +16,7 @@ frontend_node_dependencies() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/${instancia_add}/frontend
-  npm install --legacy-peer-deps
-
+  npm install
 EOF
 
   sleep 2
@@ -60,8 +59,7 @@ frontend_update() {
   pm2 stop ${empresa_atualizar}-frontend
   git pull
   cd /home/deploy/${empresa_atualizar}/frontend
-  npm install --legacy-peer-deps
-
+  npm install --force
   rm -rf build
   npm run build
   pm2 start ${empresa_atualizar}-frontend
@@ -92,16 +90,7 @@ frontend_set_env() {
 sudo su - deploy << EOF
   cat <<[-]EOF > /home/deploy/${instancia_add}/frontend/.env
 REACT_APP_BACKEND_URL=${backend_url}
-REACT_APP_ENV_TOKEN = 210897ugn217204u98u8jfo2983u5
 REACT_APP_HOURS_CLOSE_TICKETS_AUTO = 24
-REACT_APP_FACEBOOK_APP_ID= 
-REACT_APP_NAME_SYSTEM = ${instancia_add}
-REACT_APP_VERSION="1.0.0"
-REACT_APP_PRIMARY_COLOR=#0b5394
-REACT_APP_PRIMARY_DARK="#2c3145"
-REACT_APP_NUMBER_SUPPORT="5562"
-SERVER_PORT=4000
-WDS_SOCKET_PORT=0
 [-]EOF
 EOF
 

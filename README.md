@@ -1,32 +1,11 @@
-## Vamos instalar?
-
 FAZENDO DOWNLOAD DO INSTALADOR & INICIANDO A PRIMEIRA INSTALAÇÃO (USAR SOMENTE PARA PRIMEIRA INSTALAÇÃO):
 
-
 ```bash
-<<<<<<< HEAD
-sudo apt install -y git && git clone https://github.com/flaviokalleu/instalador-whaticket && sudo chmod -R 777 ./instalador-whaticket && cd ./instalador-whaticket && sudo ./install_primaria
-=======
-sudo apt install -y git && git clone https://github.com/flaviokalleu/instalador-whaticket && sudo chmod -R 777 instalador-whaticket && cd instalador-whaticket && sudo ./install_primaria
->>>>>>> 82dba2ec01af003dc3963e6b419c19f8f2be3614
+sudo apt install -y git && git clone https://github.com/weliton2k/instalador-whaticket-main-v.10.0.1.git && sudo chmod -R 777 instalador-whaticket-main-v.10.0.1 && cd instalador-whaticket-main-v.10.0.1 && sudo ./install_primaria
 ```
 
 ACESSANDO DIRETORIO DO INSTALADOR & INICIANDO INSTALAÇÕES ADICIONAIS (USAR ESTE COMANDO PARA SEGUNDA OU MAIS INSTALAÇÃO:
 ```bash
-<<<<<<< HEAD
-cd && cd ./instalador-whaticket && sudo ./install_instancia
-=======
-cd ./instalador-whaticket && sudo ./install_instancia
->>>>>>> 82dba2ec01af003dc3963e6b419c19f8f2be3614
+cd ./instalador-whaticket-main-v.10.0.1 && sudo ./install_instancia
 ```
 
-
-## Para Instalação você precisa:
-
-Uma VPS Ubuntu 20.04 (Configuração recomendada: 3 VCPU's + 4 GB RAM)
-
-Subdominio para Frontend
-
-Subdominio para API - backoffice
-
-Email válido para certificação SSL

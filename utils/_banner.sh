@@ -21,9 +21,6 @@ print_banner() {
 
   printf "\n\n"
 
-printf "${CYAN_LIGHT}";
-
-
   printf "${GREEN}";
   printf "                                                     ▄▄█▀▀▀▀▀▀▀█▄▄  \n";
   printf "                                                   ${GREEN}▄█▀${NC}   ${WHITE}▄▄${NC}      ${GREEN}▀█▄\n";
@@ -36,7 +33,13 @@ printf "${CYAN_LIGHT}";
   printf "                                                    █  ▄█▀        \n";
   printf "                                                    ▀▀▀▀          \n";
   printf "${NC}";
-  printf "${NC}";
+
+  printf "\n"
+
+printf "${GREEN}";  
+printf "${NC}";
+  
+  
 
   printf "\n"
 }

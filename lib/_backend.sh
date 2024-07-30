@@ -61,12 +61,12 @@ FRONTEND_URL=${frontend_url}
 PROXY_PORT=443
 PORT=${backend_port}
 
-DB_HOST=localhost
 DB_DIALECT=postgres
+DB_HOST=localhost
+DB_PORT=5432
 DB_USER=${instancia_add}
 DB_PASS=${mysql_root_password}
 DB_NAME=${instancia_add}
-DB_PORT=5432
 
 JWT_SECRET=${jwt_secret}
 JWT_REFRESH_SECRET=${jwt_refresh_secret}
@@ -79,60 +79,31 @@ USER_LIMIT=${max_user}
 CONNECTIONS_LIMIT=${max_whats}
 CLOSED_SEND_BY_ME=true
 
-MERCADO_PAGO_ACCESS_TOKEN=your_mercado_pago_access_token
-MERCADO_PAGO_KEYMP=your_mercado_pago_keymp
+MAIL_HOST="smtp.hostinger.com"
+MAIL_USER="contato@seusite.com"
+MAIL_PASS="senha"
+MAIL_FROM="Recuperar Senha <contato@seusite.com>"
+MAIL_PORT="465"
 
-#MASTER KEY PARA TODOS
-MASTER_KEY=
 
-ENV_TOKEN=210897ugn12054u98u8jfo2983u5
-WHATSAPP_UNREADS=
+# Stripe keys
+STRIPE_PRIVATE=your_stripe_private_key
+STRIPE_OK_URL=https://yourdomain.com/stripe/ok
+STRIPE_CANCEL_URL=https://yourdomain.com/stripe/cancel
 
-# FACEBOOK/INSTAGRAM CONFIGS
-#VERIFY_TOKEN=Whaticket
-#FACEBOOK_APP_ID=
-#FACEBOOK_APP_SECRET=
+# MercadoPago keys
+MP_ACCESS_TOKEN=your_mercadopago_access_token
+MP_NOTIFICATION_URL=https://yourdomain.com/mercadopago/notification
 
-# BROWSER SETTINGS
-BROWSER_CLIENT=Zazap - Plataforma de multi atendimeto
-BROWSER_NAME=Chrome
-BROWSER_VERSION=10.0
-VIEW_QRCODE_TERMINAL=true
+# Gerencianet keys
+GERENCIANET_PIX_KEY=your_gerencianet_pix_key
 
-# EMAIL
-# MAIL_HOST="smtp.gmail.com"
-# MAIL_USER=""
-# MAIL_PASS=""
-# MAIL_FROM=''
+# Asaas keys
+ASAAS_TOKEN=your_asaas_token
 
-# GERENCIANET
-# GERENCIANET_SANDBOX=false
-# GERENCIANET_CLIENT_ID=
-# GERENCIANET_CLIENT_SECRET=
-# GERENCIANET_CHAVEPIX=
+# Sentry DSN for error tracking
+SENTRY_DSN=your_sentry_dsn
 
-#MASTER KEY PARA TODOS
-MASTER_KEY=
-
-ENV_TOKEN=210897ugn12054u98u8jfo2983u5
-WHATSAPP_UNREADS=
-
-# FACEBOOK/INSTAGRAM CONFIGS
-#VERIFY_TOKEN=Whaticket
-#FACEBOOK_APP_ID=
-#FACEBOOK_APP_SECRET=
-
-# BROWSER SETTINGS
-BROWSER_CLIENT=Zazap
-BROWSER_NAME=Chrome
-BROWSER_VERSION=10.0
-VIEW_QRCODE_TERMINAL=true
-
-# GERENCIANET
-# GERENCIANET_SANDBOX=false
-# GERENCIANET_CLIENT_ID=
-# GERENCIANET_CLIENT_SECRET=
-# GERENCIANET_CHAVEPIX=
 
 [-]EOF
 EOF
@@ -173,7 +144,7 @@ backend_node_build() {
   sleep 2
 
   sudo su - deploy <<EOF
-  cd /home/deploy/${instancia_add}/backend  
+  cd /home/deploy/${instancia_add}/backend
   npm run build
 EOF
 
@@ -202,6 +173,7 @@ backend_update() {
   npm install @types/fs-extra
   rm -rf dist 
   npm run build
+  npx sequelize db:migrate
   npx sequelize db:migrate
   npx sequelize db:seed
   pm2 start ${empresa_atualizar}-backend
